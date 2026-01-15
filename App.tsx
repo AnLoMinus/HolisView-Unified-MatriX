@@ -4,111 +4,243 @@ import {
   Sparkles, Zap, Loader2, ChevronDown, ChevronLeft, 
   Menu, X, CheckSquare, Square, FileText, Layers, AlignRight,
   Volume2, Copy, Check, RefreshCw, Hexagon, Printer, Download, Grid,
-  Maximize2, Wind, Flame, Droplets, Mountain, Activity,
+  Maximize2, Minimize2, Wind, Flame, Droplets, Mountain, Activity,
   Bookmark, ShieldCheck, Star, Brain, Eye, Heart, Feather, Globe, Command,
   Github, Layout, Sun, Moon, Calendar, Hash, Filter, LayoutGrid, Search
 } from 'lucide-react';
 
 // --- CONFIGURATION ---
-const VERSION = "9.0 UNIFIED MATRIX";
+const VERSION = "9.5 UNIFIED MATRIX";
 
 // --- DATA STRUCTURES ---
 
 const METHODS_DATA = [
   {
     level: 1,
-    title: "רמה 1 - יסודות (מבנה)",
+    title: "רמה 1 - יסודות (4 מאפיינים)",
     description: "מיפוי המציאות על בסיס תבניות יסוד של 4",
     baseColor: "blue",
     methods: [
       { id: 'l1_pardes', name: 'פרד״ס (פשט, רמז, דרש, סוד)' },
       { id: 'l1_abya', name: 'אביע עולמות (אצילות, בריאה, יצירה, עשייה)' },
       { id: 'l1_elements', name: 'ארבעת היסודות (רוח, אש, מים, אדמה)' },
-      { id: 'l1_name', name: 'ארבע אותיות השם (י-ה-ו-ה)' },
       { id: 'l1_creatures', name: 'ארבע חיות הקודש (אריה, שור, נשר, אדם)' },
-      { id: 'l1_sons', name: 'ארבעה בנים (חכם, רשע, תם, שאינו יודע)' },
       { id: 'l1_service', name: 'ארבע מדרגות בעבודת ה׳ (יראה, אהבה, תורה, דבקות)' },
-      { id: 'l1_species', name: 'ארבעת המינים (אתרוג, לולב, הדס, ערבה)' },
       { id: 'l1_providence', name: 'ארבעה אופני השגחה (טבע, נס נסתר, נס גלוי, ישירה)' },
-      { id: 'l1_exiles', name: 'ארבע גלויות (בבל, פרס, יוון, אדום)' },
-      { id: 'l1_guardians', name: 'ארבעה שומרים (חינם, שואל, נושא שכר, שוכר)' },
-      { id: 'l1_newyears', name: 'ארבעה ראשי שנים (מלכים, בהמה, שנים, אילן)' }
+      { id: 'l1_faith', name: 'ארבע דרגות האמונה (התפתחות האמונה)' },
+      { id: 'l1_redemption', name: 'ארבע לשונות הגאולה (שלבי היציאה מהגלות)' },
+      { id: 'l1_sons', name: 'ארבעת הבנים (סוגי המתמודדים עם האתגר)' },
+      { id: 'l1_seasons', name: 'ארבע תקופות השנה (מחזוריות הזמן והתיקון)' },
+      { id: 'l1_camps', name: 'ארבע מחנות ישראל (הכיוונים השונים בעבודת ה׳)' },
+      { id: 'l1_sins', name: 'ארבעה חטאים מרכזיים ותיקונם (תיקון השורשים השליליים)' }
     ]
   },
   {
     level: 2,
-    title: "רמה 2 - צמיחה (תהליך)",
+    title: "רמה 2 - צמיחה (7 מאפיינים)",
+    description: "תהליכי התפתחות ושינוי במחזורים של 7",
     baseColor: "green",
     methods: [
-      { id: 'l2_creation', name: 'מעשה בראשית (7 ימים כהשתקפות הנפש)' },
-      { id: 'l2_principles', name: 'שבעה עקרונות לתודעה גבוהה' },
-      { id: 'l2_repentance', name: 'שבעה שלבים של תהליך תשובה' },
-      { id: 'l2_world_correction', name: 'שבעה עקרונות של תיקון עולם' },
+      { id: 'l2_creation', name: 'מעשה בראשית (תבנית הבריאה המקורית)' },
+      { id: 'l2_principles', name: 'שבעה עקרונות לתודעה גבוהה (כלים בסיסיים)' },
+      { id: 'l2_prayer', name: 'שבעה שלבים בתפילה (החיבור היומיומי עם הבורא)' },
+      { id: 'l2_growth', name: 'שבעה שלבים של צמיחה רוחנית (מהתעוררות לאחדות)' },
+      { id: 'l2_repentance', name: 'שבעה שלבים של תהליך תשובה (תיקון הפגמים)' },
+      { id: 'l2_correction_human', name: 'שבעה מרכיבים של תיקון האדם (מידות ומעשים)' },
+      { id: 'l2_redemption_personal', name: 'שבעה שלבים בגאולה האישית (התהליך האישי)' },
+      { id: 'l2_tikkun_olam', name: 'שבעה עקרונות של תיקון עולם (הרחבה לכלל)' },
     ]
   },
   {
     level: 3,
-    title: "רמה 3 - מערכות (חוקיות)",
+    title: "רמה 3 - מערכות (10 מאפיינים)",
+    description: "חוקיות מערכתית מורכבת במבנים של 10",
     baseColor: "purple",
     methods: [
-      { id: 'l3_sefirot', name: 'עשר הספירות' },
-      { id: 'l3_sayings', name: 'עשרת המאמרות' },
-      { id: 'l3_success', name: 'עשרת חוקי ההצלחה' },
-      { id: 'l3_commandments', name: 'עשרת הדיברות' },
+      { id: 'l3_sefirot', name: 'עשר הספירות (המערכת הבסיסיות של הבריאה)' },
+      { id: 'l3_sayings', name: 'עשרת המאמרות (כלי הבריאה הראשוניים)' },
+      { id: 'l3_creation_man', name: 'עשרת השלבים של בריאת האדם הרוחני' },
+      { id: 'l3_experiences', name: 'עשרת השלבים של חוויות רוחניות (תהליך ההתעלות)' },
+      { id: 'l3_torah_attributes', name: 'עשרת המידות של תורה (כלים להבנה והפנמה)' },
+      { id: 'l3_success', name: 'עשרת חוקי ההצלחה (יישום החכמה בעולם המעשה)' },
+      { id: 'l3_kelipa', name: 'עשר הספירות של הקליפה (הצד המנוגד)' },
+      { id: 'l3_time', name: 'עשרת חוקי הזמן (ניהול רעיונות בזמן)' },
+      { id: 'l3_war', name: 'עשרת חוקי המלחמה (מאבקים פנימיים וחיצוניים)' },
+      { id: 'l3_nature', name: 'עשרת חוקי העולם הטבעי (תהליכי החיים בטבע)' },
+      { id: 'l3_justice', name: 'עשרת חוקי הצדק והמשפט (צדק אוניברסלי)' },
+      { id: 'l3_commandments', name: 'עשרת הדיברות (יסודות המוסר והאמונה)' },
+      { id: 'l3_repentance_expressions', name: 'עשרת הביטויים של תשובה (חזרה לתיקון עצמי)' },
+      { id: 'l3_torah_mishna', name: 'עשרת המידות של תורה לפי המשנה' },
+      { id: 'l3_body', name: 'עשר מערכות החיים בגוף האדם (חיבור גוף-נשמה)' },
+      { id: 'l3_plagues', name: 'עשר המכות (שבירת האשליות וחינוך למציאות)' },
+      { id: 'l3_repentance_rambam', name: 'עשרת הביטויים של תשובה לפי הרמב"ם' },
     ]
   },
   {
     level: 4,
-    title: "רמה 4 - ייחוד (מהות)",
+    title: "רמה 4 - ייחוד (13 מאפיינים)",
+    description: "רמת העל, חיבור לשורש האינסופי במבנים של 13",
     baseColor: "gold",
     methods: [
-      { id: 'l4_faith_principles', name: 'י"ג יסודות האמונה' },
-      { id: 'l4_mercy', name: 'י"ג מידות הרחמים' },
-      { id: 'l4_soul_powers', name: 'י"ג כוחות הנפש' },
+      { id: 'l4_learning', name: 'י"ג דרכי הלימוד בתורה (שיטות לימוד מסורתיות)' },
+      { id: 'l4_faith_principles', name: 'י"ג יסודות האמונה (עיקרי האמונה של הרמב"ם)' },
+      { id: 'l4_mercy', name: 'י"ג מידות הרחמים (דרכי הרחמים האלוקיים)' },
+      { id: 'l4_redemption_process', name: 'י"ג שלבים בתהליך גאולה (תהליך עתידי)' },
+      { id: 'l4_soul_correction', name: 'י"ג ערוצי התיקון בנפש (ניתוח תיקוני הנשמה)' },
+      { id: 'l4_secret_paths', name: 'י"ג שבילים בתורת הסוד (מסלולי חכמה קבליים)' },
+      { id: 'l4_kabbalah_gates', name: 'י"ג שערים בחכמת הקבלה (ניתוח עיוני)' },
+      { id: 'l4_beard', name: 'י"ג תיקוני דיקנא (תיקונים רוחניים של הנהגה)' },
+      { id: 'l4_chariot', name: 'י"ג מדרגות בסולם המרכבה (התעלות רוחנית)' },
+      { id: 'l4_soul_powers', name: 'י"ג כוחות הנפש (ניתוח פסיכולוגי ורוחני)' },
     ]
   }
 ];
 
 // Rich context for the AI prompt to ensure high quality analysis
 const METHOD_LIBRARY: Record<string, { coreIdea: string, axes: { label: string, meaning: string }[], sources: string[] }> = {
+  // --- LEVEL 1 (4) ---
   'l1_pardes': {
     coreIdea: "שיטת פרד״ס מפרקת טקסט לרבדים: הפשט הגלוי, רמזים סמויים, דרש פרשני וסוד מיסטי.",
     axes: [
       { label: "פשט", meaning: "המשמעות המילולית והברורה של הטקסט." },
-      { label: "רמז", meaning: "קשרים נסתרים ומסרים מרומזים." },
-      { label: "דרש", meaning: "פרשנות והרחבה רעיונית." },
-      { label: "סוד", meaning: "המשמעות המיסטית והעמוקה." }
+      { label: "רמז", meaning: "קשרים נסתרים, גימטריות ומסרים מרומזים." },
+      { label: "דרש", meaning: "פרשנות רעיונית, מוסרית והרחבת המשמעות." },
+      { label: "סוד", meaning: "המשמעות המיסטית, הקבלית והפנימית ביותר." }
     ],
-    sources: ["4/פרד\"ס – ארבע רמות הבנה 📖.md"]
+    sources: ["4/פרד\"ס – ארבע רמות הבנה.md"]
+  },
+  'l1_abya': {
+    coreIdea: "ניתוח המציאות דרך ארבעת העולמות הקבליים.",
+    axes: [
+      { label: "אצילות", meaning: "עולם האלוהות, הרצון וההאצלה." },
+      { label: "בריאה", meaning: "עולם השכל, המחשבה והתכנון." },
+      { label: "יצירה", meaning: "עולם הרגש, הצורה והתכנון המפורט." },
+      { label: "עשייה", meaning: "עולם המעשה, החומר והביצוע." }
+    ],
+    sources: []
   },
   'l1_elements': {
-    coreIdea: "ארבעת היסודות מגדירים כוחות בסיסיים של מציאות ואופי.",
+    coreIdea: "ארבעת היסודות כבסיס להבנת המזג והמציאות.",
     axes: [
-      { label: "אש", meaning: "אנרגיה, תנועה ושאיפה קדימה." },
-      { label: "רוח", meaning: "חכמה, תקשורת ותנועה מחשבתית." },
-      { label: "מים", meaning: "רגש, חיבור וזרימה." },
-      { label: "אדמה", meaning: "יציבות, מסגרת ויישום." }
+      { label: "אש", meaning: "התלהבות, פריצה, כעס, אנרגיה." },
+      { label: "רוח", meaning: "תנועה, דיבור, תקשורת, רוחניות." },
+      { label: "מים", meaning: "רגש, תענוג, זרימה, חיבור." },
+      { label: "עפר", meaning: "יציבות, כבדות, עצבות, מעשיות." }
     ],
-    sources: ["4/ארבעת היסודות בבריאה 🌿🔥💧🌍.md"]
+    sources: []
   },
-  'l3_sefirot': {
-    coreIdea: "עשר הספירות הן מערכת הכוחות הרוחניים המנהיגים את העולם והנפש.",
+  'l1_creatures': {
+    coreIdea: "ניתוח לפי ארבע דמויות המרכבה (פני אריה, שור, נשר, אדם).",
     axes: [
-      { label: "כתר", meaning: "שורש הרצון והשליחות." },
-      { label: "חכמה", meaning: "הברק הראשוני של ההבנה." },
-      { label: "בינה", meaning: "העמקה ובניית תובנה." },
-      { label: "דעת", meaning: "חיבור בין שכל לרגש." },
-      { label: "חסד", meaning: "נתינה ואהבה." },
-      { label: "גבורה", meaning: "גבולות ומשמעת." },
-      { label: "תפארת", meaning: "איזון ויופי של אמת." },
-      { label: "נצח", meaning: "התמדה וכוח ניצחון." },
-      { label: "הוד", meaning: "ענווה וקבלת האמת." },
-      { label: "יסוד", meaning: "חיבור ויציבות." },
-      { label: "מלכות", meaning: "ביטוי והגשמה במציאות." }
+      { label: "אריה", meaning: "חסד, מלכות, הנהגה (צד ימין)." },
+      { label: "שור", meaning: "גבורה, עבודה, צמצום (צד שמאל)." },
+      { label: "נשר", meaning: "תפארת, רחמים, התעלות (קו אמצע)." },
+      { label: "אדם", meaning: "השלימות, הכולל את כולם, כוח המדבר." }
+    ],
+    sources: []
+  },
+  'l1_redemption': {
+    coreIdea: "ארבעה שלבים בתהליך הגאולה והיציאה ממשבר.",
+    axes: [
+      { label: "והוצאתי", meaning: "היציאה הפיזית מהסבל (שחרור הסבל)." },
+      { label: "והצלתי", meaning: "ההתנתקות מהתלות בגורם המשעבד." },
+      { label: "וגאלתי", meaning: "הגילוי העצמי והחיבור לייעוד." },
+      { label: "ולקחתי", meaning: "החיבור הגבוה לייעוד ולקדושה." }
+    ],
+    sources: []
+  },
+  'l1_sons': {
+    coreIdea: "ארבעה טיפוסי אישיות או גישות להתמודדות.",
+    axes: [
+      { label: "חכם", meaning: "מבקש לדעת את האמת והפרטים." },
+      { label: "רשע", meaning: "מאתגר את המערכת ומרגיש מנוכר." },
+      { label: "תם", meaning: "פועל בתמימות ויושרה ללא תחכום." },
+      { label: "שאינו יודע לשאול", meaning: "זקוק לפתיחות ולעוררות חיצונית." }
+    ],
+    sources: []
+  },
+
+  // --- LEVEL 2 (7) ---
+  'l2_creation': {
+    coreIdea: "תהליך התפתחות בן 7 שלבים המקביל לבריאת העולם.",
+    axes: [
+      { label: "יום 1 - אור", meaning: "הופעת הרעיון הראשוני וההבדלה." },
+      { label: "יום 2 - רקיע", meaning: "יצירת גבולות ומסגרת." },
+      { label: "יום 3 - יבשה", meaning: "התבססות וצמיחה ראשונית." },
+      { label: "יום 4 - מאורות", meaning: "קבלת פרופורציה ופרספקטיבה." },
+      { label: "יום 5 - חיים", meaning: "תנועה, חיות ורגש." },
+      { label: "יום 6 - אדם", meaning: "תכלית, דיבור ופעולה מורכבת." },
+      { label: "יום 7 - שבת", meaning: "מנוחה, התבוננות והרמוניה." }
+    ],
+    sources: []
+  },
+  'l2_growth': {
+    coreIdea: "שבע הספירות התחתונות כתהליך רגשי ומעשי.",
+    axes: [
+      { label: "חסד", meaning: "אהבה, נתינה, התרחבות." },
+      { label: "גבורה", meaning: "יראה, גבולות, צמצום." },
+      { label: "תפארת", meaning: "רחמים, איזון, אמת." },
+      { label: "נצח", meaning: "ביטחון, התמדה, ניצחון." },
+      { label: "הוד", meaning: "תמימות, הודיה, ענווה." },
+      { label: "יסוד", meaning: "התקשרות, ברית, אמת." },
+      { label: "מלכות", meaning: "שפלות, ביטוי, הגשמה." }
+    ],
+    sources: []
+  },
+
+  // --- LEVEL 3 (10) ---
+  'l3_sefirot': {
+    coreIdea: "עשר הספירות כמבנה השלם של ההנהגה והנפש.",
+    axes: [
+      { label: "כתר", meaning: "רצון עליון, תענוג, אמונה." },
+      { label: "חכמה", meaning: "ביטול, הברקה, כוח מה." },
+      { label: "בינה", meaning: "שמחה, הבנה, הרחבה." },
+      { label: "חסד", meaning: "אהבה, נתינה בלי גבול." },
+      { label: "גבורה", meaning: "יראה, צמצום, דין." },
+      { label: "תפארת", meaning: "רחמים, פאר, מיזוג." },
+      { label: "נצח", meaning: "ניצחון, נצחיות, יוזמה." },
+      { label: "הוד", meaning: "הודיה, הכנעה, תמימות." },
+      { label: "יסוד", meaning: "התקשרות, חיבור, השפעה." },
+      { label: "מלכות", meaning: "קבלת עול, דיבור, מעשה." }
     ],
     sources: ["10/עשר הספירות.md"]
+  },
+  'l3_commandments': {
+    coreIdea: "עשרת הדיברות כיסודות המוסר והקיום.",
+    axes: [
+      { label: "אנוכי ה'", meaning: "אמונה בסיסית ומקור הסמכות." },
+      { label: "לא יהיה", meaning: "שלילת עבודה זרה ופיצול." },
+      { label: "לא תשא", meaning: "כבוד לאמת ולשבועה." },
+      { label: "זכור את השבת", meaning: "קדושת הזמן והמנוחה." },
+      { label: "כבד את אביך", meaning: "הכרת הטוב וחיבור לשורשים." },
+      { label: "לא תרצח", meaning: "קדושת החיים." },
+      { label: "לא תנאף", meaning: "קדושת המשפחה והנאמנות." },
+      { label: "לא תגנוב", meaning: "כבוד לרכוש ולגבולות הזולת." },
+      { label: "לא תענה", meaning: "יושרה משפטית וחברתית." },
+      { label: "לא תחמוד", meaning: "טוהר המחשבה והרצון." }
+    ],
+    sources: []
+  },
+
+  // --- LEVEL 4 (13) ---
+  'l4_mercy': {
+    coreIdea: "י\"ג מידות הרחמים כמודל לסליחה ותיקון.",
+    axes: [
+      { label: "א-ל", meaning: "כוח ועוצמה של חסד." },
+      { label: "רחום", meaning: "רחמים המונעים נפילה." },
+      { label: "חנון", meaning: "מתנת חינם ללא זכאות." },
+      { label: "ארך אפיים", meaning: "סבלנות והמתנה לשינוי." },
+      { label: "ורב חסד", meaning: "הטיה כלפי החסד." },
+      { label: "ואמת", meaning: "קיום הבטחה ויציבות." },
+      { label: "נוצר חסד", meaning: "שמירת זכויות לעתיד." },
+      { label: "לאלפים", meaning: "השפעה לדורות רבים." },
+      { label: "נושא עוון", meaning: "סליחה על זדונות." },
+      { label: "ופשע", meaning: "סליחה על מרידות." },
+      { label: "וחטאה", meaning: "סליחה על שגגות." },
+      { label: "ונקה", meaning: "ניקוי וטהרה." }
+    ],
+    sources: []
   }
-  // Add more default fallbacks dynamically in the prompt builder
 };
 
 // --- STYLES & THEME UTILS ---
@@ -154,68 +286,82 @@ const cleanJson = (text: string) => {
 
 const buildSystemPrompt = ({ inputText, methodBriefs, preferences }: any) => {
   const methodLines = methodBriefs.map((method: any) => {
-    const axes = method.axes.map((axis: any, index: number) => 
-      `${index + 1}. ${axis.label} – ${axis.meaning}`
-    ).join('\n');
-    return `שיטה: ${method.name} (רמה ${method.level})\nרעיון ליבה: ${method.coreIdea}\nצירי ניתוח:\n${axes}`;
+    let axesText = "";
+    if (method.axes && method.axes.length > 0) {
+        axesText = method.axes.map((axis: any, index: number) => 
+          `${index + 1}. ${axis.label} – ${axis.meaning}`
+        ).join('\n');
+    } else {
+        // Fallback instruction if axes are missing in the library
+        axesText = `Please identify the ${method.level === 1 ? '4' : method.level === 2 ? '7' : method.level === 3 ? '10' : '13'} components of this method based on its standard Jewish/Kabbalistic definition and apply them.`;
+    }
+
+    return `
+---
+METHOD: ${method.name} (Level ${method.level})
+CORE IDEA: ${method.coreIdea || method.description}
+COMPONENTS / AXES:
+${axesText}
+---`;
   }).join('\n\n');
 
   return `
-    You are "HolisView Unified", a high-fidelity systemic analyzer combining Book Studio capabilities, Pro Card generation, and Deep Analysis.
+    You are "HolisView Unified", an expert AI system for deep cognitive and spiritual analysis based on Jewish wisdom structures (Kabbalah, Chassidut, Philosophy).
 
-    Input Text:
+    INPUT TEXT:
     "${inputText}"
 
-    Selected Methods (with base interpretations):
+    TASK:
+    Analyze the input text using the following selected methodologies. For each method, break down the text's meaning, identify underlying patterns, and offer practical insights corresponding to the method's specific structure (axes).
+
+    SELECTED METHODS:
     ${methodLines}
 
-    OUTPUT FORMAT (valid JSON only):
+    OUTPUT FORMAT (JSON ONLY):
     {
       "meta": {
-        "hebrewDate": "Hebrew date string",
-        "summary": "One paragraph Hebrew summary of the analysis focus"
+        "hebrewDate": "Current Hebrew Date",
+        "summary": "A concise executive summary of the holistic analysis in Hebrew (1 paragraph)."
       },
       "proCards": [
         {
-          "title": "Short Hebrew title",
-          "methodId": "method id",
-          "methodName": "method name",
-          "level": 1-4,
-          "layout": "quad" | "list" | "central",
-          "hebrewDate": "Hebrew date string",
+          "title": "Creative Title for this Card (Hebrew)",
+          "methodId": "ID of the method used",
+          "methodName": "Name of the method used",
+          "level": 1 | 2 | 3 | 4,
+          "layout": "quad" (for level 1) | "list" (for levels 2,3,4) | "central" (for summaries),
+          "hebrewDate": "Current Hebrew Date",
           "contentItems": [
-            { "label": "Axis label", "value": "Insight in Hebrew" }
+            { "label": "Name of axis/component (e.g., Chesed)", "value": "Deep insight relating input to this component (Hebrew)" }
           ]
         }
       ],
       "matrixSections": [
          {
-           "methodId": "method id",
-           "methodName": "method name",
-           "level": 1-4,
-           "cards": [ /* subset of proCards style objects specific to this method */ ]
+           "methodId": "ID of the method",
+           "methodName": "Name of the method",
+           "level": 1 | 2 | 3 | 4,
+           "cards": [ /* Generate 2-4 variation cards for this specific method to explore it deeply */ ]
          }
       ],
       "essenceCards": [
          {
-           "title": "Short title",
-           "element": "Fire | Water | Air | Earth",
-           "energy": "single Hebrew word",
-           "score": 1-5,
-           "sentences": ["...", "...", "...", "..."]
+           "title": "Elemental/Energetic Aspect",
+           "element": "Fire" | "Water" | "Air" | "Earth",
+           "energy": "One word Hebrew essence",
+           "score": 1-5 (intensity),
+           "sentences": ["Insight 1", "Insight 2", "Insight 3"]
          }
       ],
-      "analysisNarrative": "Short narrative in Hebrew (The 'Book' content)"
+      "analysisNarrative": "A cohesive, book-like narrative synthesizing all insights into a flow. (Hebrew, ~200 words)"
     }
 
-    RULES:
-    1. Generate at least 24 items in "proCards". The cards must reuse the selected methods multiple times to explore different angles.
-    2. For each method, "matrixSections" should include 2-3 deep dive cards.
-    3. Use the provided method axes as labels.
-    4. Use Hebrew language.
-    5. Ensure JSON is valid and without markdown fences.
-    6. If ${preferences.includeEssenceCards} is false, return empty "essenceCards".
-    7. If ${preferences.includeNarrative} is false, return "analysisNarrative" as empty string.
+    GUIDELINES:
+    1. **Diversity**: Don't just repeat the same insight. Use the unique lens of each method (e.g., '10 Sefirot' looks at structure/flow, '13 Attributes of Mercy' looks at compassion/repair).
+    2. **Depth**: Go beyond surface level. Use the "Meaning" provided in the method definitions to guide your interpretation.
+    3. **Quantity**: Generate at least one ProCard for every selected method in the main 'proCards' array. In 'matrixSections', provide a deeper dive for the first 3 selected methods.
+    4. **Language**: All user-facing content must be in high-quality Hebrew.
+    5. **Strict JSON**: Ensure the output is valid JSON. No markdown fences.
   `;
 };
 
@@ -362,18 +508,22 @@ const MethodDetails = ({ methodBrief }: any) => {
             </div>
             <div className="space-y-2">
                 <p className="text-slate-500 text-[10px] uppercase tracking-widest">צירי ניתוח</p>
-                <ul className="space-y-1">
-                    {methodBrief.axes.map((axis: any) => (
-                        <li key={axis.label} className="flex gap-2">
-                            <span className="text-slate-400">•</span>
-                            <span><strong className="text-slate-200">{axis.label}:</strong> {axis.meaning}</span>
-                        </li>
-                    ))}
-                </ul>
+                {methodBrief.axes && methodBrief.axes.length > 0 ? (
+                  <ul className="space-y-1">
+                      {methodBrief.axes.map((axis: any) => (
+                          <li key={axis.label} className="flex gap-2">
+                              <span className="text-slate-400">•</span>
+                              <span><strong className="text-slate-200">{axis.label}:</strong> {axis.meaning}</span>
+                          </li>
+                      ))}
+                  </ul>
+                ) : (
+                  <p className="text-slate-500 italic">המערכת תזהה באופן אוטומטי את רכיבי השיטה.</p>
+                )}
             </div>
             <div className="space-y-1">
                 <p className="text-slate-500 text-[10px] uppercase tracking-widest">מקורות</p>
-                <div className="text-slate-400">{methodBrief.sources.length ? methodBrief.sources.join(', ') : "אין קובץ מקור מוגדר לשיטה זו."}</div>
+                <div className="text-slate-400">{methodBrief.sources && methodBrief.sources.length ? methodBrief.sources.join(', ') : "מקורות כלליים מהמסורת היהודית."}</div>
             </div>
         </div>
     )
@@ -388,7 +538,7 @@ const App = () => {
   
   const [selectedMethods, setSelectedMethods] = useState<string[]>([]);
   const [expandedLevels, setExpandedLevels] = useState<any>({1: true, 2: false, 3: false, 4: false});
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true); // Default Open
   const [searchTerm, setSearchTerm] = useState('');
   
   // View State
@@ -396,6 +546,7 @@ const App = () => {
   const [viewMode, setViewMode] = useState<'cards' | 'sections' | 'essence' | 'narrative'>('cards');
   const [includeEssenceCards, setIncludeEssenceCards] = useState(true);
   const [includeNarrative, setIncludeNarrative] = useState(true);
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   // Derived Data
   const methodIndex = useMemo(() => {
@@ -412,15 +563,16 @@ const App = () => {
       if(!activeMethodId) return null;
       const method = methodIndex[activeMethodId];
       if(!method) return null;
-      // Fallback builder if library missing
-      const libData = METHOD_LIBRARY[activeMethodId] || { coreIdea: "שיטה שיטתית לפירוק הטקסט למרכיבים מרכזיים.", axes: [], sources: [] };
-      // Fallback axes if missing
-      const axes = libData.axes.length ? libData.axes : (method.name.match(/\(([^)]+)\)/)?.[1]?.split(',').map((s:string) => ({label: s.trim(), meaning: "..."})) || []);
+      // Fallback builder if library missing - use description from METHODS_DATA or generic
+      const libData = METHOD_LIBRARY[activeMethodId] || { 
+          coreIdea: method.description || "ניתוח מערכתי על פי חכמת היהדות.", 
+          axes: [], 
+          sources: [] 
+      };
       
       return {
           ...method,
-          ...libData,
-          axes
+          ...libData
       }
   }, [activeMethodId, methodIndex]);
 
@@ -441,10 +593,12 @@ const App = () => {
     // Prepare Payload
     const selected = selectedMethods.map(id => {
         const m = methodIndex[id];
-        // Build robust brief for prompt
-        const libData = METHOD_LIBRARY[id] || { coreIdea: "שיטה אנליטית.", axes: [], sources: [] };
-        const axes = libData.axes.length ? libData.axes : (m.name.match(/\(([^)]+)\)/)?.[1]?.split(',').map((s:string) => ({label: s.trim(), meaning: "..."})) || []);
-        return { ...m, ...libData, axes };
+        const libData = METHOD_LIBRARY[id] || { 
+             coreIdea: m.description || "General analysis", 
+             axes: [], 
+             sources: [] 
+        };
+        return { ...m, ...libData };
     });
 
     const prompt = buildSystemPrompt({ 
@@ -558,11 +712,12 @@ const App = () => {
         
         {/* SIDEBAR */}
         <aside className={`
-          absolute inset-y-0 right-0 z-40 w-80 bg-[#050508] border-l border-white/5 transform transition-transform duration-500
-          ${sidebarOpen ? 'translate-x-0 shadow-2xl shadow-black/50' : 'translate-x-full pointer-events-none opacity-0'} 
-          md:relative md:translate-x-0 md:pointer-events-auto md:opacity-100 md:shadow-none md:w-80
+          fixed inset-y-0 right-0 z-40 bg-[#050508] border-l border-white/5 transition-all duration-500
+          ${sidebarOpen ? 'translate-x-0 shadow-2xl shadow-black/50' : 'translate-x-full pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100'} 
+          md:relative md:shadow-none md:transform-none
+          ${sidebarOpen ? 'md:w-80' : 'md:w-0 md:border-none md:overflow-hidden'}
         `}>
-          <div className="p-5 h-full flex flex-col gap-6">
+          <div className="p-5 h-full flex flex-col gap-6 w-80">
             
             {/* Search */}
             <div className="space-y-3">
@@ -680,13 +835,28 @@ const App = () => {
             </section>
 
             {/* 2. RESULTS SECTION */}
-            <section className="space-y-6">
+            <section className={`
+               space-y-6 transition-all duration-500
+               ${isFullScreen ? 'fixed inset-0 z-[60] bg-[#05050A] p-6 md:p-12 overflow-y-auto custom-scrollbar' : ''}
+            `}>
                <div className="flex flex-wrap items-center justify-between gap-4">
                  <div className="flex items-center gap-2 text-xs text-slate-500 uppercase tracking-widest">
                    <LayoutGrid size={14} />
                    תוצאות
                  </div>
                  <div className="flex flex-wrap gap-2 text-xs">
+                    <button 
+                       onClick={() => setIsFullScreen(!isFullScreen)}
+                       className={`
+                          px-3 py-1.5 rounded-full border flex items-center gap-2 transition-all
+                          ${isFullScreen ? 'border-purple-500 bg-purple-500/10 text-purple-300' : 'border-white/10 text-slate-500 hover:border-white/30 hover:text-white'}
+                       `}
+                       title={isFullScreen ? "צא ממסך מלא" : "מסך מלא"}
+                    >
+                       {isFullScreen ? <Minimize2 size={12}/> : <Maximize2 size={12}/>}
+                       {isFullScreen ? "Close Fullscreen" : "Fullscreen"}
+                    </button>
+                    <div className="w-px h-6 bg-white/10 mx-2"></div>
                     {[
                       {id: 'cards', label: 'Pro Cards', icon: Grid},
                       {id: 'sections', label: 'Matrix Sections', icon: Layout},
